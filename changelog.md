@@ -1,3 +1,6 @@
+### v8.3.0
+- Add pause, resume support to freeze subscriptions
+
 ### v8.2.2
 - Fix rounding numbers
 
