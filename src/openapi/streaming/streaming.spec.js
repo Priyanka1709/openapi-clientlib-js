@@ -1562,8 +1562,6 @@ describe('openapi Streaming', () => {
 
         beforeEach(() => {
             mockConnection.start.mockImplementation((options, callback) => {
-                startCallback = callback;
-
                 mockConnectionStart = getResolvablePromise();
                 setTimeout(() => {
                     streaming.connection.transport.stateChangedCallback(
@@ -1573,8 +1571,7 @@ describe('openapi Streaming', () => {
                 });
             });
 
-            mockConnection.stop.mockImplementation((options, callback) => {
-                startCallback = callback;
+            mockConnection.stop.mockImplementation(() => {
                 streaming.connection.transport.stateChangedCallback(
                     connectionConstants.CONNECTION_STATE_DISCONNECTED,
                 );
